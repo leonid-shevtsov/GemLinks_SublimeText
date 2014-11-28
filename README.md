@@ -2,6 +2,8 @@
 
 Easily navigate Rubygems used by your project.
 
+![Gem Links menu](screenshot.png)
+
 ## Usecase
 
 If you often google for gems that you use, this is the plugin to break you out of this tedious routine.
@@ -25,7 +27,7 @@ Take note: Gem Links only works when the Gemfile is valid and the gems are insta
 
 ## Installation
 
-Install "Gem Links" from Sublime Text's Package Control.
+Install "Gem Links" from Sublime Text's [Package Control](https://sublime.wbond.net).
 
 * * *
 
