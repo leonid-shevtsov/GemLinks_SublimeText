@@ -29,7 +29,8 @@ Take note: Gem Links only works when the Gemfile is valid and the gems are insta
 
 Install "Gem Links" from Sublime Text's [Package Control](https://sublime.wbond.net).
 
-If you use OS X and [rbenv](https://github.com/sstephenson/rbenv) or [RVM](https://rvm.io), chances are Sublime Text can't find the correct Ruby version by itself. Then you should install the [Fix Mac Path](https://github.com/int3h/SublimeFixMacPath) which makes the $PATH from your shell available in Sublime Text. (This will also fix all kinds of build tools dependant on custom $PATH.)
+If you use OS X and [rbenv](https://github.com/sstephenson/rbenv) or [RVM](https://rvm.io), chances are Sublime Text can't find the correct Ruby version by itself. Then you should install the [Fix Mac Path](https://github.com/int3h/SublimeFixMacPath) plugin, which makes the $PATH from your shell available in Sublime Text. (This will also fix all kinds of build tools dependent on custom $PATH.
+)
 
 * * *
 
