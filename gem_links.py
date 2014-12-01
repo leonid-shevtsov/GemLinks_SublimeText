@@ -9,6 +9,7 @@ import json
 import webbrowser
 import locale
 
+PLUGIN_PATH = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0]))
 
 class GemLinksListCommand(sublime_plugin.WindowCommand):
     def is_enabled(self):
@@ -18,10 +19,8 @@ class GemLinksListCommand(sublime_plugin.WindowCommand):
         view = self.window.active_view()
         path = self.gemfile_search_path()
 
-        ruby_file = os.path.dirname(__file__) + "/list_gems.rb"
-
-        pipe = subprocess.Popen("cd '" + path + "'; ruby '" + ruby_file+"'",
-            shell=True,
+        ruby_file = os.path.join(PLUGIN_PATH, "list_gems.rb")
+        pipe = subprocess.Popen(['ruby', "-C" + path, ruby_file],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
             )
