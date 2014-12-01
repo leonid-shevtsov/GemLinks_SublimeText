@@ -7,13 +7,10 @@ import inspect
 import subprocess
 import json
 import webbrowser
+import locale
+
 
 class GemLinksListCommand(sublime_plugin.WindowCommand):
-    def __init__(self, window):
-        sublime_plugin.WindowCommand.__init__(self, window)
-        self.last_search_string = ''
-        pass
-
     def is_enabled(self):
         return self.gemfile_search_path() != None
 
@@ -70,7 +67,7 @@ class GemLinksListCommand(sublime_plugin.WindowCommand):
                 sublime.active_window().open_file(self.gem["spec_path"])
 
     def _sanitize_output(self, output):
-        return output.decode('utf-8', 'ignore').strip()
+        return output.decode(locale.getpreferredencoding(), 'ignore').strip()
 
     def gemfile_search_path(self):
         folders = self.window.folders()
