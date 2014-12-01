@@ -32,16 +32,16 @@ class GemLinksListCommand(sublime_plugin.WindowCommand):
                 ], None)
         else:
             self.gems = json.loads(self._sanitize_output(output))
-            gem_labels = [[ gem["name"] + " " + gem["version"], gem["summary"]] for gem in self.gems]
+            gem_labels = [[ '%s %s' % (gem["name"],  gem["version"]), gem["summary"]] for gem in self.gems]
             self.window.show_quick_panel(gem_labels, self.show_gem_menu)
 
     def show_gem_menu(self, gem_index):
         if gem_index == -1:
             return
         self.gem = self.gems[gem_index]
-        self.gem["rubygems_url"] = "https://rubygems.org/gems/" + self.gem["name"] + "/versions/" + self.gem["version"]
-        self.gem["rubydocs_url"] = "http://www.rubydoc.info/gems/" + self.gem["name"] + "/" + self.gem["version"]
-        self.gem["omniref_url"] = "https://www.omniref.com/ruby/gems/" + self.gem["name"] + "/" + self.gem["version"]
+        self.gem["rubygems_url"] = 'https://rubygems.org/gems/%s/versions/%s' % (self.gem["name"], self.gem["version"])
+        self.gem["rubydocs_url"] = 'http://www.rubydoc.info/gems/%s/%s' % (self.gem["name"], self.gem["version"])
+        self.gem["omniref_url"] = 'https://www.omniref.com/ruby/gems/%s/%s' % (self.gem["name"], self.gem["version"])
 
         self.gem_options = [
                 [ self.gem["name"] + " homepage", self.gem["homepage_url"]],
